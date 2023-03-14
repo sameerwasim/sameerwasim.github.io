@@ -1,6 +1,6 @@
 export const Colors = {
   // Languages
-  go: '#00ADD8',
+  php: '#00ADD8',
   python: '#4B8BBE',
   typescript: '#234A84',
   javascript: '#F7DF1E',
@@ -11,7 +11,7 @@ export const Colors = {
   nextjs: '#000000',
 
   // Backend
-  graphql: '#E535AB',
+  codeigniter: '#E535AB',
   node: '#68A063',
   django: '#092E20',
 
@@ -26,21 +26,19 @@ export const Colors = {
   ios: '#0C76E2',
 
   // Databases
-  arangodb: '#68A063',
+  mysql: '#68A063',
   postgres: '#336791',
   mongo: '#4DB33D',
   redis: '#D82C20',
 
   // Cloud
   aws: '#FF9900',
-  gcp: '#4285F4',
-  docker: '#0DB7Ed',
-  kubernetes: '#326CE5',
-  terraform: '#7B42BC',
+  webscraping: '#4285F4',
+  webautomation: '#326CE5',
 
-  // Messaging
-  nats: '#199bfc',
-  kafka: '#000000',
+  // tools
+  docker: '#0DB7Ed',
+  githubactions: '#7B42BC',
 
   // Social
   linkedin: '#0077B5',

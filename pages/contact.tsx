@@ -2,25 +2,25 @@ import { Header } from '@/components/Form';
 import { PageSEO } from '@/components/SEO';
 import siteMetadata from '@/data/siteMetadata';
 import { useRandomColorPair } from '@/lib/hooks/useRandomColorPair';
+import { getFileBySlug } from '@/lib/mdx';
 import { contact } from 'config/contact';
 import { openPopupWidget } from 'react-calendly';
 import { RoughNotation } from 'react-rough-notation';
+import { AuthorFrontMatter } from 'types/AuthorFrontMatter';
 
-function Contact(): React.ReactElement {
+// @ts-ignore
+export const getStaticProps: GetStaticProps<{
+  authorDetails: { mdxSource: string; frontMatter: AuthorFrontMatter };
+}> = async () => {
+  const authorDetails = await getFileBySlug<AuthorFrontMatter>('authors', [
+    'default',
+  ]);
+  const { mdxSource, frontMatter } = authorDetails;
+  return { props: { authorDetails: { mdxSource, frontMatter } } };
+};
+
+function Contact({ authorDetails }): React.ReactElement {
   const [randomColor] = useRandomColorPair();
-
-  function onScheduleMeeting(): void {
-    if (!contact.calendly) {
-      console.error('err: calendly link was not provided.');
-      return;
-    }
-
-    const config = {
-      url: contact.calendly,
-    };
-
-    openPopupWidget(config);
-  }
 
   return (
     <>
@@ -34,9 +34,9 @@ function Contact(): React.ReactElement {
           <p>
             Do you have a project in mind? Want to hire me? or simply wanna
             chat? Feel free to
-            <span
+            <a
               className='ml-2 cursor-pointer !font-normal !text-black !no-underline dark:!text-white'
-              onClick={onScheduleMeeting}
+              href={`mailto:${authorDetails.frontMatter.email}`}
               role='button'
               tabIndex={0}
             >
@@ -50,7 +50,7 @@ function Contact(): React.ReactElement {
               >
                 schedule a meeting
               </RoughNotation>
-            </span>
+            </a>
           </p>
         </div>
       </div>

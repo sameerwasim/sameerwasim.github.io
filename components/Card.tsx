@@ -6,7 +6,7 @@ function Card({ title, description, banner, href }): React.ReactElement {
     <Image
       alt={title}
       src={banner}
-      className='object-cover object-center md:h-36 lg:h-48'
+      className='object-cover object-center duration-200 ease-in hover:scale-105 md:h-36 lg:h-48'
       width={544}
       height={306}
     />

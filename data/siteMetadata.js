@@ -1,22 +1,22 @@
 const siteMetadata = {
-  title: 'Karan Pratap Singh',
-  author: 'Karan Pratap Singh',
-  headerTitle: 'Karan Pratap Singh',
+  title: 'Sameer Waseem',
+  author: 'Sameer Waseem',
+  headerTitle: 'Sameer Waseem',
   description:
-    'A software engineer who values learning and growing with people, teams, and technologies.',
+    "I'm a software engineer with a love for developing weird things, currently working at RipeSeed and leveraging my diverse range of experiences to deliver high-quality solutions.",
   language: 'en-us',
-  theme: 'system', // system, dark or light
-  siteUrl: 'https://karanpratapsingh.com',
-  siteRepo: 'https://github.com/karanpratapsingh/portfolio',
+  theme: 'dark', // system, dark or light
+  siteUrl: 'https://sameerwasim.github.io',
+  siteRepo: 'https://github.com/sameerwasim/portfolio',
   siteLogo: '/static/images/logo.png',
-  image: '/static/avatar.jpg',
+  image: '/static/avatar.jpeg',
   socialBanner: '/static/banner.png',
-  email: 'contact@karanpratapsingh.com',
-  github: 'https://github.com/karanpratapsingh',
-  twitter: 'https://twitter.com/karan_6864',
+  email: 'sameerwaseem01@gmail.com',
+  github: 'https://github.com/sameerwasim',
+  twitter: 'https://twitter.com/',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/sameerwasim',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

@@ -2,57 +2,57 @@ import { Colors } from './colors';
 
 export enum Stack {
   // Languages
-  go,
   typescript,
   javascript,
   python,
+  php,
 
   // Frontend
   react,
+  nextjs,
   reactnative,
 
   // Backend
-  graphql,
   node,
-  django,
+  codeigniter,
 
   // Cloud
   aws,
-  gcp,
 
-  // Messaging
-  nats,
-  kafka,
+  // Skills
+  webscraping,
+  webautomation,
 
   // Databases
-  arangodb,
+  mysql,
   redis,
   postgres,
   mongo,
 
   // Tools
   docker,
-  kubernetes,
-  terraform,
+  githubactions,
 }
 
 export const WorkStack = [
-  Stack.go,
   Stack.typescript,
+  Stack.javascript,
+  Stack.php,
   Stack.python,
   Stack.react,
-  Stack.aws,
-  Stack.gcp,
-  Stack.kubernetes,
-  Stack.docker,
-  Stack.terraform,
-  Stack.nats,
-  Stack.kafka,
-  Stack.graphql,
-  Stack.postgres,
-  Stack.redis,
-  Stack.arangodb,
   Stack.reactnative,
+  Stack.nextjs,
+  Stack.node,
+  Stack.codeigniter,
+  Stack.mysql,
+  Stack.redis,
+  Stack.aws,
+  Stack.docker,
+  Stack.mongo,
+  Stack.githubactions,
+  Stack.postgres,
+  Stack.webautomation,
+  Stack.webscraping,
 ];
 
 type StackInfoMap = {
@@ -69,53 +69,54 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'JavaScript',
     color: Colors.javascript,
   },
-  [Stack.go]: {
-    value: 'Go',
-    color: Colors.go,
+  [Stack.python]: {
+    value: 'Python',
+    color: Colors.python,
   },
+  [Stack.php]: {
+    value: 'PHP',
+    color: Colors.php,
+  },
+
   [Stack.react]: {
     value: 'React',
     color: Colors.react,
+  },
+  [Stack.nextjs]: {
+    value: 'NextJS',
+    color: Colors.nextjs,
   },
   [Stack.reactnative]: {
     value: 'React Native',
     color: Colors.reactnative,
   },
-  [Stack.graphql]: {
-    value: 'GraphQL',
-    color: Colors.graphql,
-  },
+
   [Stack.aws]: {
     value: 'AWS',
     color: Colors.aws,
   },
-  [Stack.gcp]: {
-    value: 'Google Cloud',
-    color: Colors.gcp,
-  },
-  [Stack.python]: {
-    value: 'Python',
-    color: Colors.python,
-  },
+
   [Stack.node]: {
     value: 'Node',
     color: Colors.node,
   },
-  [Stack.django]: {
-    value: 'Django',
-    color: Colors.django,
+  [Stack.codeigniter]: {
+    value: 'Codeigniter',
+    color: Colors.codeigniter,
   },
-  [Stack.nats]: {
-    value: 'NATS',
-    color: Colors.nats,
+
+  [Stack.webscraping]: {
+    value: 'Web Scraping',
+    color: Colors.webscraping,
   },
-  [Stack.kafka]: {
-    value: 'Kafka',
-    color: Colors.kafka,
+  [Stack.webautomation]: {
+    value: 'Web Automation',
+    color: Colors.webautomation,
   },
-  [Stack.arangodb]: {
-    value: 'ArangoDB',
-    color: Colors.arangodb,
+
+  [Stack.mysql]: {
+    value: 'MySQL',
+    color: Colors.mysql,
   },
   [Stack.postgres]: {
     value: 'Postgres',
@@ -129,16 +130,13 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'MongoDB',
     color: Colors.mongo,
   },
+
   [Stack.docker]: {
     value: 'Docker',
     color: Colors.docker,
   },
-  [Stack.kubernetes]: {
-    value: 'Kubernetes',
-    color: Colors.kubernetes,
-  },
-  [Stack.terraform]: {
-    value: 'Terraform',
-    color: Colors.terraform,
+  [Stack.githubactions]: {
+    value: 'Github Actions',
+    color: Colors.githubactions,
   },
 };
