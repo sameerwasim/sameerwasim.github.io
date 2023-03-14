@@ -52,22 +52,10 @@ const securityHeaders = [
   },
 ];
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-
-let assetPrefix = '';
-let basePath = '/';
-
-if (isGithubActions) {
-  assetPrefix = `/`;
-  basePath = ``;
-}
-
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = withBundleAnalyzer({
-  assetPrefix: assetPrefix,
-  basePath: basePath,
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
