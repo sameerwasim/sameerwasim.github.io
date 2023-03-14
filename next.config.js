@@ -52,16 +52,31 @@ const securityHeaders = [
   },
 ];
 
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+
+let assetPrefix = '';
+let basePath = '/';
+
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
+
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
 module.exports = withBundleAnalyzer({
+  assetPrefix: assetPrefix,
+  basePath: basePath,
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts', 'config'],
   },
   images: {
+    loader: 'imgix',
     domains: ['play-lh.googleusercontent.com'],
   },
   async headers() {
