@@ -76,7 +76,7 @@ jobs:
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.gaId }}
         run: |
-          export NODE_ENV = production
+          NODE_ENV=production
           ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
