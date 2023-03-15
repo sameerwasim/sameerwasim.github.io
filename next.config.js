@@ -62,6 +62,8 @@ module.exports = withBundleAnalyzer({
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts', 'config'],
   },
   images: {
+    loader: 'akamai',
+    path: '',
     domains: ['play-lh.googleusercontent.com'],
   },
   async headers() {
