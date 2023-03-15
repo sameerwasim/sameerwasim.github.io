@@ -4,14 +4,10 @@ import { contact, ContactType } from 'config/contact';
 import React, { memo } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FaLinkedinIn as LinkedinIcon } from 'react-icons/fa';
-import {
-  IoLogoGithub as GithubIcon,
-  IoLogoTwitter as TwitterIcon,
-} from 'react-icons/io';
+import { IoLogoGithub as GithubIcon } from 'react-icons/io';
 import {
   SiBuymeacoffee as BuymeacoffeeIcon,
   SiGmail as MailIcon,
-  SiYoutube as YoutubeIcon,
 } from 'react-icons/si';
 import { Maybe, Tuple } from 'types';
 

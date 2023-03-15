@@ -3,8 +3,6 @@ import { PageSEO } from '@/components/SEO';
 import siteMetadata from '@/data/siteMetadata';
 import { useRandomColorPair } from '@/lib/hooks/useRandomColorPair';
 import { getFileBySlug } from '@/lib/mdx';
-import { contact } from 'config/contact';
-import { openPopupWidget } from 'react-calendly';
 import { RoughNotation } from 'react-rough-notation';
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter';
 

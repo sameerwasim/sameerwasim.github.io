@@ -16,7 +16,10 @@ import { Toc } from 'types/Toc';
 const DEFAULT_LAYOUT = 'PostLayout';
 
 export async function getStaticPaths() {
-  const posts = getFiles('blog');
+  let posts = getFiles('blog');
+  posts = posts.filter(post => post.includes('.md'));
+  console.log(posts);
+
   return {
     paths: posts.map(post => ({
       params: {

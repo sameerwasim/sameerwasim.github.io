@@ -135,6 +135,7 @@ export async function getAllFilesFrontMatter(folder: 'blog' | 'courses') {
   files.forEach((file: string) => {
     // Replace is needed to work on Windows
     const fileName = file.slice(prefixPaths.length + 1).replace(/\\/g, '/');
+
     // Remove Unexpected File
     if (path.extname(fileName) !== '.md' && path.extname(fileName) !== '.mdx') {
       return;
