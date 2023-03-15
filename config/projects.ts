@@ -92,6 +92,24 @@ export const projects: Project[] = [
     subProjects: [],
   },
   {
+    title: 'List Networks',
+    slug: 'list-networks',
+    banner: '/static/projects/ln/banner.png',
+    website: 'https://listnetworks.com',
+    description:
+      'List Networks is online marketplace where businesses can submit their business networks and get leads from customers. We operate all over the world no matter where are you, just submit your ad in your country or city, the rest work we will do it for you. Submit events, coupons, deals reviews and much more.',
+    shortDescription:
+      'List Networks is an online marketplace for businesses to submit their networks and get leads from customers globally, offering event listings, coupons, deals, reviews, and more.',
+    repository: '',
+    stack: [Stack.php, Stack.codeigniter, Stack.mysql],
+    dimensions: [360, 640],
+    screenshots: ['/static/projects/ln/banner.png'],
+    deployment: {
+      web: 'https://listnetworks.com',
+    },
+    subProjects: [],
+  },
+  {
     title: 'My Auction Sheet',
     slug: 'my-auction-sheet',
     banner: '/static/projects/mas/banner.jpeg',
@@ -129,24 +147,6 @@ export const projects: Project[] = [
     ],
     deployment: {
       web: 'https://inpkr.com',
-    },
-    subProjects: [],
-  },
-  {
-    title: 'List Networks',
-    slug: 'list-networks',
-    banner: '/static/projects/ln/banner.png',
-    website: 'https://listnetworks.com',
-    description:
-      'List Networks is online marketplace where businesses can submit their business networks and get leads from customers. We operate all over the world no matter where are you, just submit your ad in your country or city, the rest work we will do it for you. Submit events, coupons, deals reviews and much more.',
-    shortDescription:
-      'List Networks is an online marketplace for businesses to submit their networks and get leads from customers globally, offering event listings, coupons, deals, reviews, and more.',
-    repository: '',
-    stack: [Stack.php, Stack.codeigniter, Stack.mysql],
-    dimensions: [360, 640],
-    screenshots: ['/static/projects/ln/banner.png'],
-    deployment: {
-      web: 'https://listnetworks.com',
     },
     subProjects: [],
   },

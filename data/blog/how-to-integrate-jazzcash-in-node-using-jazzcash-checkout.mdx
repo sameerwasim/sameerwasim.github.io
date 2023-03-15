@@ -1,5 +1,5 @@
 ---
-title: 'How to integrate JazzCash in NodeJS using jazzcash-checkout'
+title: 'How to integrate JazzCash in NodeJS using Jazzcash Checkout'
 date: '2023-03-15'
 tags: ['javascript', 'node', 'npm']
 draft: false
@@ -11,4 +11,145 @@ images:
 authors: ['default']
 ---
 
-Lorem Ipsum
+In this article, we will discuss how to integrate [Jazzcash](https://www.jazzcash.com.pk/corporate/online-payment-gateway/) Payment Gateway
+into [NodeJS](https://nodejs.org/en/) using the [npmjs](https://www.npmjs.com/) package [jazzcash-checkout](https://www.npmjs.com/package/jazzcash-checkout) in few simple steps.
+
+## What is JazzCash?
+
+JazzCash is a digital payment platform and mobile wallet service in Pakistan, owned by Jazz, one of the largest
+mobile network operators in the country. JazzCash enables users to transfer funds, pay bills, and buy products
+and services using their mobile phones. It offers a range of features and services, including bill payments for
+utilities, mobile top-ups, and online shopping. Additionally, it provides an Online Payment Gateway to integrate
+into your website. JazzCash has become an important part of Pakistan's digital economy, promoting financial
+inclusion, and reducing the use of cash in the country. This has improved security and reduced the risk of fraud
+and theft.
+
+## What is Jazzcash Checkout?
+
+JazzCash checkout is a Node.js package on the available NPM that provides a simple interface for integrating
+JazzCash payment gateway with your applications. It allows users to make digital payments, transfer money,
+and pay bills online through multiple payment channels such as credit cards, debit cards, and mobile wallets.
+The package simplifies the process of handling JazzCash transactions and provides a secure and reliable way
+to accept payments online.
+
+## How to integrate Jazzcash Checkout with NodeJS?
+
+#### Prerequisite
+
+- Node Server 12.x or above
+
+### Steps
+
+1. Use the following command `npm i jazzcash-checkout` or `yarn add jazzcash-checkout` in terminal to install **jazzcash-checkout** package.
+2. Now, create a file called `jazzcash.js` in your app.
+3. Put the following code in your file.
+
+```javascript
+const Jazzcash = require('jazzcash-checkout');
+
+// initializes your jazzcash
+Jazzcash.credentials({
+  config: {
+    merchantId: '', // Merchant Id
+    password: '', // Password
+    hashKey: '', // Hash Key
+  },
+  environment: 'sandbox', // available environment live or sandbox
+});
+
+const JC = {
+  wallet: (data, callback) => {
+    Jazzcash.setData(data);
+    Jazzcash.createRequest('WALLET').then(res => {
+      res = JSON.parse(res);
+      console.log(res);
+
+      // callback function
+      callback(res);
+    });
+  },
+
+  pay: (data, callback) => {
+    Jazzcash.setData(data);
+    Jazzcash.createRequest('PAY').then(res => {
+      console.log(res);
+
+      // callback function
+      callback(res);
+    });
+  },
+
+  refund: (data, callback) => {
+    Jazzcash.setData(data);
+    Jazzcash.createRequest('REFUND').then(res => {
+      res = JSON.parse(res);
+      console.log(res);
+
+      // callback function
+      callback(res);
+    });
+  },
+
+  inquiry: (data, callback) => {
+    Jazzcash.setData(data);
+    Jazzcash.createRequest('INQUIRY').then(res => {
+      res = JSON.parse(res);
+      console.log(res);
+
+      // callback function
+      callback(res);
+    });
+  },
+};
+
+module.exports = JC;
+```
+
+Replace `Merchant Id`, `Password`, `Hash Key` with the values provided by the jazzcash payment gateway.<br/>
+
+4. Now, call the `JC` module where you want to use it.
+
+```javascript
+const JC = require('/path/to/JC');
+
+// function used to pay
+const pay = (req, res) => {
+  const data = {
+    pp_Version: '1.1',
+    pp_DiscountedAmount: '',
+    pp_DiscountBank: '',
+    pp_Amount: '1000',
+    pp_TxnCurrency: 'PKR',
+    pp_BillReference: 'billRef123',
+    pp_Description: 'Description of transaction',
+  };
+
+  JC.pay(data, res => {
+    if (res.pp_SecureHash) {
+      // success code here
+    } else {
+      // failure code here
+    }
+  });
+};
+```
+
+By using the pay function provided by the package to generate a secure hash string for your payment request.
+Once you have the data with the secure hash , you can send the payment request from either your backend or frontend.
+
+It's worth noting that when using JazzCash in production, you should obtain the production environment credentials
+and update the environment value in the jazzcash.js file accordingly.  
+Also, it's recommended to follow the best practices for securely handling sensitive information, such as encrypting
+your JazzCash credentials and not exposing them in your code or on the client-side.  
+Additionally, you may want to implement error handling and validation to ensure that the payment requests and responses
+are handled correctly and securely.
+
+## Conclusion
+
+In conclusion, integrating JazzCash payment gateway with your NodeJS application can be easily achieved by using the
+npm package called Jazzcash Checkout. With this integration, you can offer your users a secure and reliable way to
+make digital payments, transfer money, and pay bills online through multiple payment channels. The package simplifies
+the process of handling JazzCash transactions and provides a convenient way to accept payments online. It's important
+to follow the best practices for securely handling sensitive information and implement error handling and validation
+to ensure that payment requests and responses are handled correctly and securely. By integrating JazzCash payment
+gateway, you can promote financial inclusion, reduce the use of cash, and improve security in your online transactions.

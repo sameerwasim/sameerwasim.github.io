@@ -18,7 +18,6 @@ const DEFAULT_LAYOUT = 'PostLayout';
 export async function getStaticPaths() {
   let posts = getFiles('blog');
   posts = posts.filter(post => post.includes('.md'));
-  console.log(posts);
 
   return {
     paths: posts.map(post => ({

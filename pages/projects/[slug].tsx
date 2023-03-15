@@ -63,7 +63,7 @@ export default function Project({
         >
           <Image
             loading='eager'
-            src={screenshot}
+            src={screenshot.includes('http') ? screenshot : `/${screenshot}`}
             height={height}
             width={width}
             objectFit='contain'

@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/sameerwasim/portfolio',
   siteLogo: '/static/images/logo.png',
   image: '/static/avatar.jpeg',
-  socialBanner: '/static/banner.png',
+  socialBanner: '',
   email: 'sameerwaseem01@gmail.com',
   github: 'https://github.com/sameerwasim',
   twitter: 'https://twitter.com/',

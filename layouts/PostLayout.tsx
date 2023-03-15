@@ -97,7 +97,7 @@ export default function PostLayout({
                     >
                       {author.avatar && (
                         <Image
-                          src={author.avatar}
+                          src={`/${author.avatar}`}
                           width='38px'
                           height='38px'
                           alt='avatar'
@@ -109,19 +109,9 @@ export default function PostLayout({
                         <dd className='text-gray-900 dark:text-gray-100'>
                           {author.name}
                         </dd>
-                        <dt className='sr-only'>Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                            >
-                              {author.twitter.replace(
-                                'https://twitter.com/',
-                                '@',
-                              )}
-                            </Link>
-                          )}
+                        <dt className='sr-only'>Occupation</dt>
+                        <dd className='text-gray-600 dark:text-gray-400'>
+                          {author.occupation}
                         </dd>
                       </dl>
                     </li>
