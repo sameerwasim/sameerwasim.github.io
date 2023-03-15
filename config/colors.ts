@@ -50,6 +50,7 @@ export const Colors = {
   facebook: '#1877f2',
 
   // Misc.
+  npm: '#CC3534',
   git: '#F1502F',
   microservices: '#1890ff',
   distributedsystems: '#404040',

@@ -30,6 +30,7 @@ export enum Stack {
   mongo,
 
   // Tools
+  npm,
   docker,
   githubactions,
 }
@@ -53,6 +54,7 @@ export const WorkStack = [
   Stack.postgres,
   Stack.webautomation,
   Stack.webscraping,
+  Stack.npm,
 ];
 
 type StackInfoMap = {
@@ -138,5 +140,9 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.githubactions]: {
     value: 'Github Actions',
     color: Colors.githubactions,
+  },
+  [Stack.npm]: {
+    value: 'NPM',
+    color: Colors.npm,
   },
 };
