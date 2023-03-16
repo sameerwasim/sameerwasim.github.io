@@ -1,0 +1,232 @@
+---
+title: 'Create A Dynamic Sitemap With PHP'
+date: '2023-03-16'
+tags: ['php', 'sitemap']
+draft: false
+summary: 'Learn how to create dynamic sitemap for your website using PHP'
+images: ['/static/blogs/create-a-dynamic-xml-sitemap-with-php.png']
+authors: ['default']
+---
+
+In this article, we will discuss how to create a dynamic xml based sitemap for your website using [PHP](https://www.php.net/).
+
+## What is Sitemap?
+
+A Sitemap is a file that contains a list of URLs for a website that the website owner wants search engines to crawl
+and index. Sitemap files are typically in XML format, but can also be in other formats like HTML or TXT. A Sitemap
+can provide additional information about each URL on a website, such as how frequently the content of a URL is
+updated or when the content was last modified.
+
+### Purpose of a Sitemap
+
+By including a Sitemap on a website, the website owner can help search engines better understand the structure of
+the website and identify important si that should be crawled and indexed. This can improve the website's
+visibility in search results and ultimately drive more traffic to the site. Sitemaps can also be used to indicate
+alternate language versions of a webpage, or to provide additional metadata such as images or videos associated
+with a URL.
+
+### Do i need a dynamically generated XML sitemap for my website?
+
+Yes, If your website has dynamic content, a dynamically generated XML sitemap can be very useful. This type of sitemap
+can update automatically whenever new content is added or existing content is modified. This eliminates the need
+to manually update your sitemap every time changes are made to your site's content.
+
+## How to create a dynamic sitemap?
+
+Let's start by creating a file called `sitemap_generator.php` or anything you want it to be called. Create a function
+inside it which will be used to create our dynamic xml sitemap. e.g,
+
+```php
+<?php
+
+function sitemap_generator() {
+}
+
+?>
+```
+
+Paste the code below in your function `sitemap_generator` and pass params `$name` and `$urls` to the function
+
+```php
+<?php
+
+function sitemap_generator($name, $urls) {
+
+  $xmlString = '<?xml version="1.0" encoding="UTF-8"?>
+    <urlset
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+  foreach ($urls as $key => $url) {
+    $xmlString .=  '<url><loc>'.$url.'</loc></url>';
+  }
+
+  $xmlString .= '</urlset>';
+
+  $dom = new DOMDocument;
+  $dom->preserveWhiteSpace = false;
+  $dom->loadXML($xmlString);
+  $dom->save("./$name.xml");
+
+  return "$name.xml";
+}
+
+?>
+```
+
+**Code Explanation**
+
+The `sitemap_generator` function takes in two parameters: `$name`, which is the name of the sitemap file to be generated,
+and `$urls`, which is an array of URLs to include in the sitemap. The function starts by defining the XML header and
+opening the urlset element with the appropriate namespaces and schema locations. The function then loops through the
+`$urls` array and appends each URL as a loc element within a url element. After the loop, the function closes the urlset
+element. The function then creates a new `DOMDocument` object and loads the XML string into it. The `preserveWhiteSpace`
+property of the `DOMDocument` object is set to `false`, which tells it to remove any whitespace that is not necessary for
+formatting. The function then saves the `DOMDocument` object to a file with the name specified in the `$name` parameter.
+Finally, the function returns the filename of the generated sitemap.
+
+The resulting XML file will be in the following format:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://inpkr.com/page1</loc>
+  </url>
+  <url>
+    <loc>http://inpkr.com/page2</loc>
+  </url>
+  ...
+</urlset>
+```
+
+### What if i have multiple sitemaps for my website?
+
+In the case, we have multiple sitemaps for a website. We can easily tackle that problem by creating a main
+sitemap for our website which will contain all the sub sitemaps like below:
+
+```xml
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <sitemap>
+    <loc>https://inpkr.com/sitemap1.xml</loc>
+    <lastmod>2023-03-15T00:57:35+08:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://inpkr.com/sitemap2.xml</loc>
+    <lastmod>2023-03-15T00:57:35+08:00</lastmod>
+  </sitemap>
+</sitemapindex>
+```
+
+To achieve above task, we can use the following function. Let's create a new file called `main_sitemap.php` and put the
+function below in the file.
+
+```php
+<?php
+
+function main_sitemap_generator($sitemaps) {
+
+  $xmlString = '<?xml version="1.0" encoding="UTF-8"?>
+    <sitemapindex
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+      xmlns:xhtml="http://www.w3.org/1999/xhtml"
+      xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+      xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">';
+
+  foreach ($sitemaps as $key => $sitemap) {
+    $xmlString .=  '<sitemap><loc>'.$sitemap.'</loc><lastmod>'.date('c').'</lastmod></sitemap>';
+  }
+
+  $xmlString .= '</sitemapindex>';
+
+
+  $dom = new DOMDocument;
+  $dom->preserveWhiteSpace = false;
+  $dom->loadXML($xmlString);
+  $dom->save("../sitemap.xml");
+}
+
+?>
+```
+
+**Code Explanation**
+
+The above function generates a XML sitemap file. The function takes an array of existing sitemap URLs, iterates over
+each URL, and adds it to the sitemap index with the current date as the last modified date. The function then saves the
+resulting XML to a file named `sitemap.xml` in a directory located one level above the current directory.
+
+### Final Code
+
+Now, let's use both of the function in one example and create a sitemap.
+
+```php
+<?php
+
+include('./main_sitemap.php');
+include('./sitemap_generator.php');
+
+
+$generated_sitemaps = [];
+
+// sitemap one for blogs
+$name = 'blog';
+$urls = [
+  'https://www.inpkr.com/blogs',
+  'https://www.inpkr.com/blog/business-and-entrepreneurship/gold-prices-in-pakistan',
+  'https://www.inpkr.com/blog/business-and-entrepreneurship/digital-marketing-main-challenges',
+];
+$generated_sitemaps[] = sitemap_generator($name, $urls);
+
+// sitemap two for mobiles
+$name = 'blog';
+$urls = [
+  'https://www.inpkr.com/',
+  'https://www.inpkr.com/mobile/vivo-iqoo-neo-7-4390',
+  'https://www.inpkr.com/mobile/decode-cygnal-2-4640',
+];
+$generated_sitemaps[] = sitemap_generator($name, $urls);
+
+
+// Generated Main Sitemap
+main_sitemap_generator($generated_sitemap);
+
+
+?>
+```
+
+**Code Explanation**
+
+Above, PHP code generates multiple sitemap files for a website using the `main_sitemap_generator` and
+`sitemap_generator` functions. The script first includes the necessary function files and then generates
+two sitemap files, one for the blog section and one for the mobile section of the website. The file names
+of the generated sitemaps are stored in the `$generated_sitemaps` array. Finally, the script generates the
+main sitemap index file by calling the `main_sitemap_generator` function with the array of generated sitemap
+file names.
+
+### How to run the above PHP code automatically
+
+There are several ways to automate the execution of the code above, one of which is using crons. You can set a cron
+job to run the PHP script at a set interval, such as every hour, according to your preference. Alternatively, you
+can use the functions provided above within your code to generate a sitemap whenever specific content is updated or
+a certain condition is met.
+
+Moreover, you can integrate the above code with a database. For instance, you can refer to the database code example
+available on the GitHub repository [xml-sitemap-generator](https://github.com/sameerwasim/xml-sitemap-generator/blob/main/index.php).
+This allows you to dynamically generate a sitemap based on the content stored in the database, making it easier to keep
+the sitemap up-to-date as the content changes.
+
+## In Conclusion
+
+In summary, a sitemap is a file that provides search engines with a map of all the pages on your website. Having an
+up-to-date sitemap can improve your website's search engine optimization (SEO) by ensuring that search engines can
+easily find and index all your website's pages. You can use PHP code to generate a sitemap dynamically, either by
+crawling your website or by retrieving data from a database. You can automate the process of generating a sitemap
+using cron jobs or by integrating the code with your website's content management system (CMS). By doing so, you
+can keep your sitemap up-to-date and ensure that search engines can easily find and index all your website's pages.
