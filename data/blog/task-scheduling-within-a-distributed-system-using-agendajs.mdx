@@ -1,12 +1,119 @@
 ---
-title: 'Task scheduling within a distributed system using Agenda.js.'
+title: 'Task scheduling within a distributed system using Agenda.js'
 date: '2023-04-06'
 tags: ['javascript', 'node', 'agendajs', 'distributed system']
-draft: true
-summary: "Let's discuss how I was able to easily schedule tasks within a distributed system using Agenda.js."
+draft: false
+summary: "Let's discuss how I was able to easily schedule tasks within a distributed system using Agenda.js"
 images:
   [
     '/static/blogs/task-scheduling-within-a-distributed-system-using-agendajs.png',
   ]
 authors: ['default']
 ---
+
+In this article, I want to share my experience of creating a task-scheduling system within a
+distributed system. At first, I faced some challenges which made it tough for me to establish
+an effective system. But after some research, I found a solution in the form of [Agenda](https://github.com/agenda/agenda)
+\- a task-scheduling library that helped me to overcome those hurdles. Throughout this article,
+I'll talk about the problems I faced while creating the task-scheduling system, explain how
+**Agenda** helped me to solve those problems, and give you some insights on how you can use it
+in similar situations.
+
+## Challenges with Task Scheduling within Distributed system
+
+### Why I Need Task Scheduling?
+
+One of the primary reasons why I need task scheduling in my application is to send emails and notifications
+at a specific time to my users. When a certain action is performed in my app, it schedules emails and notifications
+to be sent at a specific time using task scheduling. This ensures that my users receive timely and relevant information.
+
+### Issues & Solutions
+
+Using task scheduling with [node-schedule](https://www.npmjs.com/package/node-schedule) can be challenging
+when using AWS Elastic Load Balancer [(ELB)](https://aws.amazon.com/elasticloadbalancing/) with auto scaling for my server.
+This means that there will be multiple instances of my server running to maintain an ideal load on each instance for my
+application. If all instances are part of the same application, it means that each instance will have various task scheduling on it.
+
+#### Issue One: Multiple Instance
+
+If a task is scheduled on one instance, and I want to reschedule it for a different time, I will need to ping that specific server.
+However, with ELB, the traffic to the server is automatically balanced between all the instances, and my reschedule request can
+land between any instance, which might not even be holding the task that I want to reschedule.
+
+#### Issue Two: Crashes & Shut Down
+
+Moreover, if any of my instances crashes or shuts down, all the tasks scheduled on that instance will be lost.
+
+#### Solution to Issue One & Two
+
+To protect all my scheduled tasks, I thought about implementing a solution where I save all my scheduled tasks to my database.
+I chosen MongoDB as my database as I was already using it for my application. This way, even if my instance crashes,
+all the scheduled tasks will be automatically reinitialized when my server restarts.
+
+#### Issue Three: Duplication
+
+However, the third problem arises when I re-schedule all the tasks at the start or restart of my instance.
+This will schedule all the jobs present in the database, and as my instance cannot communicate with other instances
+directly to know which tasks are already scheduled and which tasks need to be rescheduled due to the crash or
+shutdown of an instance. This issue can cause duplication of scheduled task. Also, this issue can also arise due
+to the creation of new instances by auto scaling for load balancing.
+
+#### Solution to Issue Three
+
+Solution to the problem three would be to make instances communicate with each other,
+but this would require a lot of work and resources. Another solution could be to use a local database such as Redis
+to store only the scheduled tasks of that instance. However, this still does not solve the issue of being freely able
+to reschedule or delete tasks due to the load balancer managing the traffic on my instances.
+
+#### Solutions to all three Issues
+
+1. Creating an entirely different server to do all the task scheduling could be a solution,
+   but it would require additional cost and maintenance.
+
+2. Creating a service that can schedule tasks across multiple instances, handle failures without duplication, and allow updates from anywhere. To achieve this, i used AgendaJS.
+
+### How does AgendaJs works?
+
+Agenda.js is a library that helps developers schedule and run tasks, jobs, or events in their Node.js applications.
+It stores information about these scheduled jobs in MongoDB, and provides an easy-to-use interface for creating, managing,
+and executing these jobs. It also has features to ensure that jobs are executed safely and efficiently.
+
+Agenda.js is designed to work in a distributed system and handles task scheduling in a distributed system by using a concept
+called "job locking". Job locking is a technique that ensures that only one instance of a job is running at a time, even if
+multiple instances of the application are running. When a job is scheduled, Agenda.js first acquires a lock on that job in
+the database. This lock prevents any other instance of the application from running the same job until the lock is released.
+When the job is finished, the lock is released and the next scheduled instance of the job can be executed by any instance of
+the application that acquires the lock. This prevents race conditions and ensures that each job is executed exactly once.
+
+Below, is one code example of AgendaJS.
+
+```javascript
+const Agenda = require('agenda');
+const mongoConnectionString = 'mongodb://127.0.0.1/agenda-example';
+
+const agenda = new Agenda({ db: { address: mongoConnectionString } });
+
+agenda.define('log message', job => {
+  console.log(job.attrs.data.message);
+});
+
+(async function () {
+  await agenda.start();
+  await agenda.every('1 minute', 'log message', { message: 'Hello, world!' });
+})();
+```
+
+In above example, We set up Agenda.js by connecting it to a MongoDB database and creating a new instance of the Agenda module.
+We then define a job to log a message and schedule it to run every minute using the scheduler. When we run the script, the job
+will run every minute and log the message "Hello, world!" to the console each time.
+
+## Conclusion
+
+In a distributed system, scheduling tasks can be difficult due to issues like multiple instances, crashes, shutdowns, and
+duplication of tasks. However, libraries such as Agenda.js can help overcome these challenges by using job locking, which
+ensures that only one instance of a task runs at a time. Agenda.js stores information about the scheduled tasks in MongoDB
+and offers an easy-to-use interface for creating, managing, and executing them.
+
+Using Agenda.js enables developers to create a service that can schedule tasks across multiple instances, handle failures
+without duplication, and allow updates from anywhere. With this solution, developers can efficiently and reliably schedule
+tasks within a distributed system.
