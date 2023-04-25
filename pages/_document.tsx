@@ -50,6 +50,7 @@ class MyDocument extends Document {
           <link rel='manifest' href='/static/favicons/site.webmanifest' />
           <meta name='msapplication-TileColor' content='#000000' />
           <meta name='theme-color' content='#000000' />
+          <meta name="google-site-verification" content="F5tlWuFVL6HUbDLEulJJhPSaTnvbPA5Xtwjsr4myxwc" />
           <link rel='alternate' type='application/rss+xml' href='/feed.xml' />
         </Head>
         <body className='bg-white text-black antialiased dark:bg-gray-900 dark:text-white'>
