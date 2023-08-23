@@ -31,7 +31,7 @@ function Contact({ authorDetails }): React.ReactElement {
         <div className='container py-12'>
           <p>
             Do you have a project in mind? Want to hire me? or simply wanna
-            chat? Feel free to
+            chat? Feel free to email me at 
             <a
               className='ml-2 cursor-pointer !font-normal !text-black !no-underline dark:!text-white'
               href={`mailto:${authorDetails.frontMatter.email}`}
@@ -46,7 +46,7 @@ function Contact({ authorDetails }): React.ReactElement {
                 animationDuration={2000}
                 color={randomColor}
               >
-                schedule a meeting
+                sameerwaseem01@gmail.com
               </RoughNotation>
             </a>
           </p>
