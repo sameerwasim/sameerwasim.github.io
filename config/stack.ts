@@ -14,47 +14,58 @@ export enum Stack {
 
   // Backend
   node,
+
+  // frameworks
   codeigniter,
+  laravel,
+  flask,
 
   // Cloud
   aws,
 
-  // Skills
-  webscraping,
-  webautomation,
+  // Generative AI
+  openai,
+  prompt_engineering,
 
   // Databases
   mysql,
-  redis,
   postgres,
   mongo,
+  pinecone,
 
   // Tools
   npm,
-  docker,
-  githubactions,
+  github,
 }
 
 export const WorkStack = [
   Stack.typescript,
   Stack.javascript,
-  Stack.php,
   Stack.python,
+  Stack.php,
+
   Stack.react,
   Stack.reactnative,
   Stack.nextjs,
+
   Stack.node,
+
   Stack.codeigniter,
-  Stack.mysql,
-  Stack.redis,
+  Stack.laravel,
+  Stack.flask,
+
   Stack.aws,
-  Stack.docker,
+
+  Stack.openai,
+  Stack.prompt_engineering,
+
+  Stack.mysql,
   Stack.mongo,
-  Stack.githubactions,
   Stack.postgres,
-  Stack.webautomation,
-  Stack.webscraping,
+  Stack.pinecone,
+
   Stack.npm,
+  Stack.github,
 ];
 
 type StackInfoMap = {
@@ -102,18 +113,18 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'Node',
     color: Colors.node,
   },
+
   [Stack.codeigniter]: {
     value: 'Codeigniter',
     color: Colors.codeigniter,
   },
-
-  [Stack.webscraping]: {
-    value: 'Web Scraping',
-    color: Colors.webscraping,
+  [Stack.laravel]: {
+    value: 'Laravel',
+    color: Colors.laravel,
   },
-  [Stack.webautomation]: {
-    value: 'Web Automation',
-    color: Colors.webautomation,
+  [Stack.flask]: {
+    value: 'Flask',
+    color: Colors.flask,
   },
 
   [Stack.mysql]: {
@@ -124,25 +135,30 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'Postgres',
     color: Colors.postgres,
   },
-  [Stack.redis]: {
-    value: 'Redis',
-    color: Colors.redis,
-  },
   [Stack.mongo]: {
     value: 'MongoDB',
     color: Colors.mongo,
   },
+  [Stack.pinecone]: {
+    value: 'Pinecone',
+    color: Colors.pinecone,
+  },
 
-  [Stack.docker]: {
-    value: 'Docker',
-    color: Colors.docker,
+  [Stack.openai]: {
+    value: 'OpenAI',
+    color: Colors.openai,
   },
-  [Stack.githubactions]: {
-    value: 'Github Actions',
-    color: Colors.githubactions,
+  [Stack.prompt_engineering]: {
+    value: 'Prompt Engineering',
+    color: Colors.prompt_engineering,
   },
+
   [Stack.npm]: {
     value: 'NPM',
     color: Colors.npm,
+  },
+  [Stack.github]: {
+    value: 'Github',
+    color: Colors.github,
   },
 };

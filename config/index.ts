@@ -14,6 +14,6 @@ const config: Config = {
   courses,
 };
 
-export const POSTS_PER_PAGE = 10;
+export const POSTS_PER_PAGE = 5;
 
 export default config;

@@ -1,44 +1,41 @@
 export const Colors = {
   // Languages
-  php: '#00ADD8',
-  python: '#4B8BBE',
-  typescript: '#234A84',
-  javascript: '#F7DF1E',
+  php: '#777BB3',
+  python: '#ffde57',
+  typescript: '#007acc',
+  javascript: '#F0DB4F',
 
   // Frontend
   web: '#2D2D2D',
-  react: '#61DAF6',
-  nextjs: '#000000',
+  react: '#61dbfb',
+  nextjs: '#45ce05',
 
   // Backend
-  codeigniter: '#E535AB',
-  node: '#68A063',
-  django: '#092E20',
-
-  // Tools, Libs
-  webpack: '#8DD6F9',
-  babel: '#F5DB53',
-  redux: '#764ABC',
+  codeigniter: '#DD4814',
+  node: '#3c873a',
+  flask: '#3c873a',
+  laravel: '#F05340',
 
   // Mobile
-  reactnative: '#2D2D2D',
-  android: '#56A036',
-  ios: '#0C76E2',
+  reactnative: '#61dbfb',
+  android: '#3DDC84',
+  ios: '##A2AAAD',
 
   // Databases
-  mysql: '#68A063',
-  postgres: '#336791',
-  mongo: '#4DB33D',
-  redis: '#D82C20',
+  mysql: '#F29111',
+  postgres: '#0064a5',
+  mongo: '#3FA037',
+  pinecone: '#62473B',
 
   // Cloud
   aws: '#FF9900',
-  webscraping: '#4285F4',
-  webautomation: '#326CE5',
 
   // tools
-  docker: '#0DB7Ed',
-  githubactions: '#7B42BC',
+  github: '#171515',
+
+  // Generative AI
+  openai: '#000000',
+  prompt_engineering: '#23275b',
 
   // Social
   linkedin: '#0077B5',
