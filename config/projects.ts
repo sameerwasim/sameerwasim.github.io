@@ -20,13 +20,14 @@ export interface Project {
   title: string;
   slug: string;
   website: string;
-  banner: string;
+  banner?: string;
   description: string;
   shortDescription?: string;
   repository: Maybe<string>;
   stack: Stack[];
+  responsibilities: string[];
   dimensions?: Tuple<number>; // Tuple of [height, width]
-  screenshots: string[];
+  screenshots?: string[];
   deployment: Deployment;
   subProjects: SubProject[];
 }
@@ -42,6 +43,7 @@ export const projects: Project[] = [
     shortDescription:
       'Citybook is a classified business listing and event search website.',
     repository: '',
+    responsibilities: ['Project Leader', 'Project Leader'],
     stack: [
       Stack.javascript,
       Stack.php,
@@ -51,12 +53,7 @@ export const projects: Project[] = [
       Stack.node,
     ],
     dimensions: [360, 640],
-    screenshots: [
-      '/static/projects/citybook/banner.webp',
-      'https://play-lh.googleusercontent.com/aP4LXbs55tz1UKxwD0fK10B31OEd8VOz4HCWzIl517baCJpDRlCcSjYUO77LInzMdg=w1052-h592-rw',
-      'https://play-lh.googleusercontent.com/K3R2BcCHxCG04xpyWfdxdfmZDDo77TvuOVyXrtTIzJTnm0gxInkuXpLfW6ZtIYODNk0=w1052-h592-rw',
-      'https://play-lh.googleusercontent.com/EexziyroE6Mz1xdE4_-zzR_0vQt-lw_Kj_paC13ff6pX7ujSvbxdq4S-BzP6i1PNjA=w1052-h592-rw',
-    ],
+    screenshots: [],
     deployment: {
       web: 'https://citybook.pk',
       android: 'https://play.google.com/store/apps/details?id=pk.citybook',
@@ -83,9 +80,10 @@ export const projects: Project[] = [
     shortDescription:
       'AutoOnes.com is a Pakistani-based online platform that specializes in buying, selling of automotive vehicles',
     repository: '',
+    responsibilities: [],
     stack: [Stack.javascript, Stack.php, Stack.mysql, Stack.react, Stack.node],
     dimensions: [360, 640],
-    screenshots: ['/static/projects/autoones/banner.png'],
+    screenshots: [],
     deployment: {
       web: 'https://autoones.com',
     },
@@ -101,9 +99,10 @@ export const projects: Project[] = [
     shortDescription:
       'List Networks is an online marketplace for businesses to submit their networks and get leads from customers globally, offering event listings, coupons, deals, reviews, and more.',
     repository: '',
+    responsibilities: [],
     stack: [Stack.php, Stack.codeigniter, Stack.mysql],
     dimensions: [360, 640],
-    screenshots: ['/static/projects/ln/banner.png'],
+    screenshots: [],
     deployment: {
       web: 'https://listnetworks.com',
     },
@@ -119,9 +118,10 @@ export const projects: Project[] = [
     shortDescription:
       'My Auction Sheet is a website providing access to auction sheets for Japanese imported vehicles to help buyers make informed decisions about the condition of the vehicle.',
     repository: '',
+    responsibilities: [],
     stack: [Stack.javascript, Stack.php, Stack.mysql, Stack.react, Stack.node],
     dimensions: [360, 640],
-    screenshots: ['/static/projects/mas/banner.jpeg'],
+    screenshots: [],
     deployment: {
       web: 'https://myauctionsheet.com',
     },
@@ -137,9 +137,10 @@ export const projects: Project[] = [
     shortDescription:
       'Autodeals.pk is a website for car dealers and sellers to list and buyers to purchase cars in Pakistan, offering features such as browsing, contacting sellers, and resources for buyers and sellers.',
     repository: '',
+    responsibilities: [],
     stack: [Stack.javascript, Stack.php, Stack.mysql, Stack.react, Stack.node],
     dimensions: [360, 640],
-    screenshots: ['/static/projects/autodeals/banner.jpeg'],
+    screenshots: [],
     deployment: {
       web: 'https://autodeals.pk',
     },
@@ -155,14 +156,10 @@ export const projects: Project[] = [
     shortDescription:
       'inPKR is a price portal where you can find latest and updated prices of various items in Pakistan',
     repository: '',
+    responsibilities: [],
     stack: [Stack.javascript, Stack.php, Stack.mysql],
     dimensions: [360, 640],
-    screenshots: [
-      '/static/projects/inpkr/banner.png',
-      '/static/projects/inpkr/1.png',
-      '/static/projects/inpkr/2.png',
-      '/static/projects/inpkr/3.png',
-    ],
+    screenshots: [],
     deployment: {
       web: 'https://inpkr.com',
     },

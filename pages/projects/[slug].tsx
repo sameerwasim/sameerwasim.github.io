@@ -45,9 +45,20 @@ export default function Project({
     deployment,
     screenshots,
     subProjects,
+    responsibilities,
   } = project;
 
   const [height, width] = dimensions ?? defaultDimensions;
+
+  const image = (
+    <Image
+      alt={title}
+      src={'/' + banner}
+      className='rounded-full object-cover object-center duration-200 ease-in hover:scale-105 md:h-36 lg:h-48'
+      width={30}
+      height={30}
+    />
+  );
 
   const renderScreenShotList = useCallback(
     (screenshot: string) => {
@@ -88,9 +99,21 @@ export default function Project({
     [],
   );
 
+  const renderResponsibilitiesList = useCallback(
+    (responsibility: string) => {
+      return (
+        <div className='bg-placeholder-light py-1 pl-2 dark:bg-placeholder-dark'>
+          &bull; {responsibility}
+        </div>
+      );
+    },
+    [height, width],
+  );
+
   const hasDeployments = !!deployment;
   const hasScreenshots = !!screenshots.length;
   const hasSubProjects = !!subProjects.length;
+  const hasResponsibilities = !!responsibilities.length;
 
   return (
     <>
@@ -99,13 +122,26 @@ export default function Project({
         description={shortDescription || description}
         imageUrl={banner}
       />
-      <H1 className='lg:text-5x mb-4 text-3xl font-bold dark:text-white'>
-        {title}
-      </H1>
+      <div className='flex flex-row gap-3'>
+        {banner && <div className='mt-1'>{image}</div>}
+        <H1 className='lg:text-5x mb-4 text-3xl font-bold dark:text-white'>
+          {title}
+        </H1>
+      </div>
+
       <p className='mb-4 font-light'>{description}</p>
 
-      <H2>Stack</H2>
+      <H2>Tech Stack</H2>
       <StackList stack={stack} />
+
+      <Conditional condition={hasResponsibilities}>
+        <div className='my-4'>
+          <H2 className='mb-4'>Responsibilities</H2>
+          {React.Children.toArray(
+            responsibilities.map(renderResponsibilitiesList),
+          )}
+        </div>
+      </Conditional>
 
       <Conditional condition={hasDeployments}>
         <H2>Deployments</H2>
@@ -123,8 +159,7 @@ export default function Project({
       </Conditional>
 
       <Conditional condition={hasSubProjects}>
-        <H2 className='mt-4'>More Products</H2>
-        <p className='mt-1 mb-4 font-light'>Some additional products</p>
+        <H2 className='mt-4'>Sub Projects</H2>
         {React.Children.toArray(subProjects.map(renderSubProjectList))}
       </Conditional>
     </>
