@@ -11,6 +11,7 @@ export enum Stack {
   react,
   nextjs,
   reactnative,
+  flutter,
 
   // Backend
   node,
@@ -19,6 +20,8 @@ export enum Stack {
   codeigniter,
   laravel,
   flask,
+  expressjs,
+  jquery,
 
   // Cloud
   aws,
@@ -36,6 +39,7 @@ export enum Stack {
   // Tools
   npm,
   github,
+  firebase,
 }
 
 export const WorkStack = [
@@ -56,16 +60,13 @@ export const WorkStack = [
 
   Stack.aws,
 
-  Stack.openai,
   Stack.prompt_engineering,
 
   Stack.mysql,
   Stack.mongo,
   Stack.postgres,
-  Stack.pinecone,
 
-  Stack.npm,
-  Stack.github,
+  Stack.firebase,
 ];
 
 type StackInfoMap = {
@@ -103,6 +104,10 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'React Native',
     color: Colors.reactnative,
   },
+  [Stack.flutter]: {
+    value: 'Flutter',
+    color: Colors.flutter,
+  },
 
   [Stack.aws]: {
     value: 'AWS',
@@ -110,7 +115,7 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   },
 
   [Stack.node]: {
-    value: 'Node',
+    value: 'NodeJS',
     color: Colors.node,
   },
 
@@ -126,13 +131,21 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     value: 'Flask',
     color: Colors.flask,
   },
+  [Stack.expressjs]: {
+    value: 'ExpressJS',
+    color: Colors.expressjs,
+  },
+  [Stack.jquery]: {
+    value: 'jQuery',
+    color: Colors.jquery,
+  },
 
   [Stack.mysql]: {
     value: 'MySQL',
     color: Colors.mysql,
   },
   [Stack.postgres]: {
-    value: 'Postgres',
+    value: 'PostgreSQL',
     color: Colors.postgres,
   },
   [Stack.mongo]: {
@@ -160,5 +173,9 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.github]: {
     value: 'Github',
     color: Colors.github,
+  },
+  [Stack.firebase]: {
+    value: 'Firebase',
+    color: Colors.firebase,
   },
 };

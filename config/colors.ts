@@ -9,12 +9,15 @@ export const Colors = {
   web: '#2D2D2D',
   react: '#61dbfb',
   nextjs: '#45ce05',
+  flutter: '#027DFD',
 
   // Backend
   codeigniter: '#DD4814',
   node: '#3c873a',
   flask: '#3c873a',
+  expressjs: '#00153E',
   laravel: '#F05340',
+  jquery: '#0769ad',
 
   // Mobile
   reactnative: '#61dbfb',
@@ -32,6 +35,7 @@ export const Colors = {
 
   // tools
   github: '#171515',
+  firebase: '#F5820D',
 
   // Generative AI
   openai: '#000000',
