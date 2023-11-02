@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://sameerwasim.github.io',
-  siteRepo: 'https://github.com/sameerwasim/portfolio',
+  siteRepo: 'https://github.com/sameerwasim/sameerwasim.github.io',
   siteLogo: '/static/images/logo.png',
   image: '/static/avatar.jpeg',
   socialBanner: '',

@@ -13,13 +13,13 @@ github: https://github.com/sameerwasim
 
 Hey there! 👋
 
-I'm a seasoned Software Engineer with a passion for crafting and designing innovative, cutting-edge solutions. With a diverse background and a wealth of experiences, I've fine-tuned my skills across various domains within the field.
+I'm a Software Engineer with a passion for crafting and designing innovative, cutting-edge solutions. With a diverse background and a wealth of experiences, I've fine-tuned my skills across various domains within the field.
 
 ### My Journey
 
 My journey began in 2019 when I worked at **Master Communication**, an ISP, where I gained valuable knowledge about the inner workings of web servers and the internet, establishing a strong foundation in the tech world.
 
-I currently work as a Software Engineer at [**RipeSeed**](https://ripeseed.io), where I'm on the cutting edge of developing a wide array of cloud-based web and mobile applications. I'm passionate about tackling challenges and delivering top-notch solutions that precisely align with the business's demands.
+I currently work as a Software Engineer at [**RipeSeed**](https://ripeseed.io), where I'm developing a wide array of cloud-based web and mobile applications. I'm passionate about tackling challenges and delivering top-notch solutions that precisely align with the business's demands.
 
 #### Technology Toolbox
 

@@ -2,7 +2,14 @@ import Image from 'next/image';
 import Link from './Link';
 import StackList from './list/StackList';
 
-function Card({ title, description, banner, stack, href }): React.ReactElement {
+function Card({
+  title,
+  description,
+  banner,
+  stack,
+  href,
+  date,
+}): React.ReactElement {
   const image = (
     <Image
       alt={title}
@@ -43,16 +50,23 @@ function Card({ title, description, banner, stack, href }): React.ReactElement {
           <p className='prose mb-3 max-w-none text-gray-500 dark:text-gray-400'>
             {description}
           </p>
-          <StackList stack={stack} />
-          {href && (
-            <Link
-              href={href}
-              className='text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-              aria-label={`Link to ${title}`}
-            >
-              Learn more &rarr;
-            </Link>
-          )}
+          {stack.length > 0 && <StackList stack={stack} />}
+          <div className='flex flex-row justify-between'>
+            {href && (
+              <Link
+                href={href}
+                className='text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                aria-label={`Link to ${title}`}
+              >
+                Learn more &rarr;
+              </Link>
+            )}
+            {date && (
+              <p>
+                <i>{date}</i>
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>
