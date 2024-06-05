@@ -16,14 +16,14 @@ export default function Projects() {
         <div className='container py-12'>
           <div className='-m-4 flex flex-wrap'>
             {config.projects.map(
-              ({ slug, title, shortDescription, stack, banner }) => (
+              ({ slug, title, shortDescription, stack, banner, website }) => (
                 <Card
                   key={slug}
                   title={title}
                   stack={stack}
                   description={shortDescription}
                   banner={banner}
-                  href={`/projects/${slug}`}
+                  href={website}
                 />
               ),
             )}

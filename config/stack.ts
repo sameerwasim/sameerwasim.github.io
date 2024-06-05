@@ -60,6 +60,7 @@ export const WorkStack = [
 
   Stack.aws,
 
+  Stack.openai,
   Stack.prompt_engineering,
 
   Stack.mysql,
