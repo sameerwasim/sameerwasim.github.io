@@ -1,10 +1,8 @@
-import { Maybe, Tuple } from '../types';
-
 export interface Highlight {
   title: string;
   link: string;
   banner?: string;
-  date: string;
+  date?: string;
   description: string;
 }
 
