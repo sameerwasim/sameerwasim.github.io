@@ -2,7 +2,7 @@ import React from 'react';
 
 const Image = ({ imgUrl }) => (
   <div className='flex justify-center'>
-    <img src={imgUrl} alt={imgUrl} />
+    <img src={imgUrl} />
   </div>
 );
 
