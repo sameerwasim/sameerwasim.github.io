@@ -12,6 +12,7 @@ export const getStaticProps: GetStaticProps<{
   pagination: ComponentProps<typeof ListLayout>['pagination'];
 }> = async () => {
   const posts = await getAllFilesFrontMatter('blog');
+
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE);
   const pagination = {
     currentPage: 1,

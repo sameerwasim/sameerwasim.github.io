@@ -1,7 +1,8 @@
 /* eslint-disable react/display-name */
 import React, { useMemo } from 'react';
 import { ComponentMap, getMDXComponent } from 'mdx-bundler/client';
-import Image from 'next/image';
+import Image from './mdx/Image';
+import Loom from './mdx/Loom';
 import CustomLink from './Link';
 import TOCInline from './TOCInline';
 import Pre from './Pre';
@@ -17,6 +18,7 @@ const Wrapper: React.ComponentType<{ layout: string }> = ({
 
 export const MDXComponents: ComponentMap = {
   Image,
+  Loom,
   //@ts-ignore
   TOCInline,
   a: CustomLink,
