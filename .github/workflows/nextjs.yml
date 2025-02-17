@@ -44,7 +44,7 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.gaId }}
