@@ -11,17 +11,17 @@ linkedin: https://www.linkedin.com/in/sameerwasim
 github: https://github.com/sameerwasim
 ---
 
-Hey there! 👋
+Hello there! 👋
 
-I'm a Software Engineer with a passion for crafting and designing innovative, cutting-edge solutions. With a diverse background and a wealth of experiences, I've fine-tuned my skills across various domains within the field.
+I'm Sameer, a Software Engineer who loves to create and design innovative solutions. With a diverse background and a wealth of experiences, I've honed my skills across various domains within the tech industry.
 
 ### My Journey
 
-My journey began in 2019 when I worked at **Master Communication**, an ISP, where I gained valuable knowledge about the inner workings of web servers and the internet, establishing a strong foundation in the tech world. From there, I joined [**Azi Solutions**] where i helped developed web and mobile applications using MERN Stack.
+My journey began in 2019 when I started my career at **Master Communication**, an ISP. Here, I gained valuable insights into web servers and the internet, laying a strong foundation in the tech world. I then moved on to [**Azi Solutions**], where I contributed to the development of web and mobile applications using the MERN Stack.
 
-I currently work as a Full Stack Developer at [**Mir Tech**](https://www.mirtech.io/), where I'm developing an AI based SaaS application using technologies like JavaScript and Python. I'm passionate about tackling challenges and delivering top-notch solutions that precisely align with the business's demands.
+I'm currently a Full Stack Developer at [**Mir Tech**](https://www.mirtech.io/), where I'm working on an AI-based SaaS application using technologies like JavaScript and Python. I'm passionate about solving challenges and delivering top-notch solutions that meet the business's needs.
 
-Prior to Mir Tech, I was part of the team at [**Ripeseed**](https://ripeseed.io), where I contributed to the development cloud based web and mobile applications using various technologies.
+Before Mir Tech, I was part of the team at [**Ripeseed**](https://ripeseed.io), where I worked on cloud-based web and mobile applications using various technologies.
 
 #### Technology Toolbox
 

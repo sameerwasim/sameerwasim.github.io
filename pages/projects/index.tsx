@@ -5,6 +5,8 @@ import siteMetadata from '@/data/siteMetadata';
 import config from 'config';
 
 export default function Projects() {
+  const activeProjects = config.projects;
+
   return (
     <>
       <PageSEO
@@ -15,8 +17,16 @@ export default function Projects() {
         <Header title='Projects' />
         <div className='container py-12'>
           <div className='-m-4 flex flex-wrap'>
-            {config.projects.map(
-              ({ slug, title, shortDescription, stack, banner, website }) => (
+            {activeProjects.map(
+              ({
+                slug,
+                title,
+                shortDescription,
+                stack,
+                banner,
+                website,
+                status,
+              }) => (
                 <Card
                   key={slug}
                   title={title}
@@ -24,6 +34,7 @@ export default function Projects() {
                   description={shortDescription}
                   banner={banner}
                   href={website}
+                  status={status}
                 />
               ),
             )}

@@ -22,6 +22,8 @@ export enum Stack {
   flask,
   expressjs,
   jquery,
+  nestjs,
+  django,
 
   // Cloud
   aws,
@@ -57,6 +59,8 @@ export const WorkStack = [
   Stack.codeigniter,
   Stack.laravel,
   Stack.flask,
+  Stack.nestjs,
+  Stack.django,
 
   Stack.aws,
 
@@ -139,6 +143,14 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.jquery]: {
     value: 'jQuery',
     color: Colors.jquery,
+  },
+  [Stack.nestjs]: {
+    value: 'NestJS',
+    color: Colors.nestjs,
+  },
+  [Stack.django]: {
+    value: 'Django',
+    color: Colors.django,
   },
 
   [Stack.mysql]: {

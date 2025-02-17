@@ -18,6 +18,8 @@ export const Colors = {
   expressjs: '#00153E',
   laravel: '#F05340',
   jquery: '#0769ad',
+  nestjs: '#E0234E',
+  django: '#092E20',
 
   // Mobile
   reactnative: '#61dbfb',
