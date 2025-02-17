@@ -52,7 +52,9 @@ jobs:
           NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
           NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
           NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
-        run: npm run build && npm run export
+        run: |
+          npm run build
+          npx next export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
