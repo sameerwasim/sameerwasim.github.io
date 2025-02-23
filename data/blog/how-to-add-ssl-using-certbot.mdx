@@ -1,0 +1,126 @@
+---
+title: 'How to Add Free SSL to Your Website Using Certbot'
+date: '2025-02-23'
+tags: ['nginx', 'ssl', 'certbot', 'aws', 'devops']
+draft: false
+summary: 'A step-by-step guide on how to secure your website with free SSL certificates using Certbot and Nginx, whether you are hosting on AWS EC2 or any other VM.'
+images: []
+authors: ['default']
+---
+
+Let's face it - in 2025, if your website doesn't have that little green padlock in the browser's address bar, you might as well be running your site on a potato 🥔. But fear not! I'm here to show you how to get that SSL certificate for free using Certbot. And the best part? It's easier than explaining to your non-tech friends what you do for a living!
+
+### What we'll need
+
+Before we dive in, make sure you have:
+
+- A website running on Nginx (Apache works too, but we'll focus on Nginx here)
+- SSH access to your server (AWS EC2, DigitalOcean, or any VM)
+- Basic command line knowledge (you know, the black screen with the blinking cursor)
+- A domain name pointing to your server
+- 10 minutes of your time (maybe 20 if you're easily distracted like me)
+
+### Step 1: Install Certbot
+
+First, let's get Certbot installed on your server. SSH into your server and run these commands:
+
+```bash
+# For Ubuntu/Debian
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+```
+
+### Step 2: Configure Nginx
+
+Make sure your Nginx configuration includes your domain name. Open your Nginx config file:
+
+```bash
+sudo nano /etc/nginx/sites-available/your-domain.conf
+```
+
+Your configuration should look something like this:
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+
+    root /var/www/yourdomain;
+    index index.html;
+
+    # Other configuration settings...
+}
+```
+
+### Step 3: Run Certbot
+
+Now for the magic part! Run Certbot with the Nginx plugin:
+
+```bash
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+```
+
+Certbot will ask you a few questions:
+
+1. Enter your email address (for renewal notifications)
+2. Agree to the terms of service
+3. Choose whether to redirect HTTP traffic to HTTPS (hint: yes, you want this)
+
+And boom! 💥 Your site is now secured with SSL. Certbot will automatically modify your Nginx configuration to handle SSL certificates.
+
+### Step 4: Verify Auto-Renewal
+
+Certbot certificates expire every 90 days (because security), but don't worry - Certbot sets up automatic renewal. Let's verify it's working:
+
+```bash
+sudo certbot renew --dry-run
+```
+
+If everything's good, you'll see a success message. The actual renewal will happen automatically via a cron job.
+
+### Common issues and (possible) solutions
+
+#### "Connection refused" errors
+
+Make sure ports 80 and 443 are open in your security group/firewall:
+
+```bash
+# Check if ports are open
+sudo netstat -tulpn | grep -E ':80|:443'
+
+# For AWS EC2, check your security group rules
+# For UFW firewall
+sudo ufw allow 80
+sudo ufw allow 443
+```
+
+#### Domain validation fails
+
+- Double-check your DNS settings
+- Make sure your domain is pointing to your server's IP
+- Wait a few minutes for DNS to work their magic
+
+#### Nginx won't restart
+
+Check your Nginx configuration for errors:
+
+```bash
+sudo nginx -t
+sudo systemctl status nginx
+```
+
+### Pro Tips
+
+1. **Multiple domains**: You can secure multiple domains in one go:
+
+```bash
+sudo certbot --nginx -d domain1.com -d domain2.com -d domain3.com
+```
+
+2. **Backup your certificates**: They're usually in `/etc/letsencrypt/live/`. Back them up, but keep them secure - they're like your server's passport.
+
+### Conclusion
+
+And there you have it! Your website is now running on HTTPS, your visitors' data is secure, and Search Engines won't give you the side-eye for not having SSL.
+
+P.S. If you found this helpful, feel free to share it with your fellow developers. And if you run into any issues, just remember: it's not a bug, it's an unexpected feature!
