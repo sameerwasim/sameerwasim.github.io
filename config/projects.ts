@@ -45,7 +45,7 @@ export const projects: Project[] = [
     slug: 'jensi',
     website: 'https://jensi.io',
     shortDescription:
-      'Jensi.io is a platform for businesses to manage their operations and workflows efficiently.',
+      'Jensi.io is a platform for businesses to manage their operations and workflows efficiently. Built at Mir Tech.',
     stack: [
       Stack.typescript,
       Stack.nextjs,
