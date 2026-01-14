@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://sameerwasim.github.io',
   siteRepo: 'https://github.com/sameerwasim/sameerwasim.github.io',
   siteLogo: '/static/images/logo.png',
-  image: '/static/avatar.jpeg',
+  image: '/static/avatar.png',
   socialBanner: '',
   email: 'sameerwaseem01@gmail.com',
   github: 'https://github.com/sameerwasim',

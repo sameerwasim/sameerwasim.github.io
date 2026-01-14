@@ -1,7 +1,7 @@
 ---
 name: Sameer Waseem
 shortname: Sameer
-avatar: /static/avatar.jpeg
+avatar: /static/avatar.png
 occupation: Senior Software Engineer
 company: Stealth AI Startup
 resume: /static/Sameer.pdf
@@ -17,7 +17,7 @@ I'm Sameer, a Software Engineer with over 6 years of experience. I've spent the 
 
 ### My Journey
 
-I started my career in 2019 at **Master Communication**, an ISP, where I learned about web servers and networking. I then joined [**AZ Solutions**](https://azsolutionspk.com/) and spent over 2 years building web and mobile applications using the MERN Stack.
+I started my career in 2019 at **Master Communication**, an ISP, where I learned about web servers and networking. I then joined [**AZi Solutions**](https://azsolutionspk.com/) and spent over 2 years building web and mobile applications using the MERN Stack.
 
 I'm currently a **Senior Software Engineer** at a US-based **Stealth AI Startup**, working remotely from Canada.
 
