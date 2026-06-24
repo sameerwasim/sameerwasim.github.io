@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
         <div className='space-y-6 rounded-lg bg-white p-6 shadow-sm dark:bg-gray-900'>
           <p className='leading-relaxed text-gray-700 dark:text-gray-300'>
             Gratuity Guru (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;)
-            is a tip calculator app developed by Sameer Wasim. This Privacy
+            is a tip calculator app developed by Sameer Waseem. This Privacy
             Policy explains how we handle information when you use the Gratuity
             Guru mobile application (the &quot;App&quot;).
           </p>
@@ -123,7 +123,7 @@ const PrivacyPolicy = () => {
                 If you have questions about this Privacy Policy, contact:
               </p>
               <p className='text-gray-700 dark:text-gray-300'>
-                Sameer Wasim
+                Sameer Waseem
                 <br />
                 <a
                   href='mailto:sameerwaseem01@gmail.com'

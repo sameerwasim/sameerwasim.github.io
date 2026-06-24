@@ -17,8 +17,8 @@ const PrivacyPolicy = () => {
         <div className='space-y-6 rounded-lg bg-white p-6 shadow-sm dark:bg-gray-900'>
           <p className='leading-relaxed text-gray-700 dark:text-gray-300'>
             Nestboard (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is a
-            family task board app developed by Sameer Wasim. This Privacy Policy
-            explains what information we collect, how we use it, and your
+            family task board app developed by Sameer Waseem. This Privacy
+            Policy explains what information we collect, how we use it, and your
             choices when you use the Nestboard mobile application (the
             &quot;App&quot;).
           </p>
@@ -205,7 +205,7 @@ const PrivacyPolicy = () => {
                 contact:
               </p>
               <p className='text-gray-700 dark:text-gray-300'>
-                Sameer Wasim
+                Sameer Waseem
                 <br />
                 <a
                   href='mailto:sameerwaseem01@gmail.com'

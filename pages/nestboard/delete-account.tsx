@@ -124,7 +124,7 @@ const DeleteAccount = () => {
                 Questions about account deletion or your data? Contact:
               </p>
               <p className='text-gray-700 dark:text-gray-300'>
-                Sameer Wasim
+                Sameer Waseem
                 <br />
                 <a
                   href={`mailto:${email}`}
