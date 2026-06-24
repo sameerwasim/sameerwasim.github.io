@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Sameer Waseem',
   headerTitle: 'Sameer Waseem',
   description:
-    "I'm a software engineer with over 6 years of experience, specializing in Generative AI and full-stack development. Currently building AI products remotely from Canada.",
+    'Senior Software Engineer with 5+ years of experience building AI products, SaaS platforms, and full-stack apps. Principal Engineer at moonbird AI, based in Ontario, Canada.',
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://sameerwasim.github.io',

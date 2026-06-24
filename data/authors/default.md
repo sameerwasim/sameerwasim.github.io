@@ -3,8 +3,8 @@ name: Sameer Waseem
 shortname: Sameer
 avatar: /static/avatar.png
 occupation: Senior Software Engineer
-company: Stealth AI Startup
-resume: /static/Sameer.pdf
+company: moonbird AI
+resume: /static/Sameer_Waseem_CV.pdf
 email: sameerwaseem01@gmail.com
 twitter: https://twitter.com/
 linkedin: https://www.linkedin.com/in/sameerwasim
@@ -13,37 +13,39 @@ github: https://github.com/sameerwasim
 
 Hello there! 👋
 
-I'm Sameer, a Software Engineer with over 6 years of experience. I've spent the past few years working remotely with startups, helping them take ideas from concept to launch. Recently, I moved to **Canada** 🇨🇦 and I'm continuing my journey in tech from here.
+I'm Sameer, a Senior Software Engineer with **5+ years of experience**, most of it building in the **AI and product space** — chatbots, voice agents, SaaS platforms, and full-stack apps. I've worked across remote teams in the **US, Australia, and Malaysia**, and I'm now settled in **Ontario, Canada** 🇨🇦.
 
-### My Journey
+I tend to end up owning things: architecture decisions, delivery, and the work that crosses team boundaries. My main tools are **Python** and **TypeScript**, with solid experience across **Next.js**, **FastAPI**, REST APIs, LLM integrations, **AWS**, and **Docker**.
 
-I started my career in 2019 at **Master Communication**, an ISP, where I learned about web servers and networking. I then joined [**AZi Solutions**](https://azsolutionspk.com/) and spent over 2 years building web and mobile applications using the MERN Stack.
+### Experience
 
-I'm currently a **Senior Software Engineer** at a US-based **Stealth AI Startup**, working remotely from Canada.
+**moonbird AI** — Principal Software Engineer · Remote (US) · _Jan 2026 – Present_
 
-Previously, I worked at [**eesel AI**](https://eesel.ai) as a Software Engineer, building AI-powered productivity tools.
+**[eesel AI](https://eesel.ai)** — Software Engineer · Remote (Australia) · _Apr 2025 – Dec 2025_
 
-Before that, I was a Full Stack Developer at [**Mir Tech**](https://www.mirtech.io/), where I worked on AI-based SaaS applications including [**Jensi**](https://jensi.io), a platform for businesses to manage their operations and workflows. I also spent over a year at [**RipeSeed**](https://ripeseed.io), working on cloud-based web and mobile applications.
+Hands-on across multiple projects — shipping full modules end-to-end, running production deployments, executing data migrations, and taking POCs from prototype to production. Built a **Shopify App Store** chatbot for merchants, the entire **Front.com** integration from scratch, and helped migrate the **Zendesk Messenger** integration to eesel's own agent system.
+
+**[Mir Tech](https://www.mirtech.io/)** — Product Engineer · Remote (Kuala Lumpur) · _Feb 2024 – May 2025_
+
+Sole product engineer on [**SalesEnvoy**](https://salesenvoy.io) — owned the product from MVP to launch. After shipping, contributed to **Jensi** and **T-One**. Led client-facing projects from brief to delivery, bringing in **$22K+** in agency revenue. Built a **Next.js SaaS** platform with real-time **Supabase** auth and a **Flask** newsletter system, plus **MERN** web apps and **React Native** mobile apps handling **400+ transactions/month**. Managed deployments on **DigitalOcean** with **99.8%** availability.
+
+**[RipeSeed](https://ripeseed.io)** — Software Engineer · Lahore · _Jan 2023 – Feb 2024_
+
+**AZI Solutions** — Associate Software Engineer · Lahore · _Mar 2020 – Dec 2022_
+
+### Education
+
+**University of the Punjab** — Bachelor of Science, Computer Science
 
 ### What I Do
 
-I've worked on projects involving Generative AI, Python, automation, and training. I enjoy fast-moving environments where ownership and problem-solving matter.
+- **AI & automation** — LLM integrations (OpenAI, Anthropic), production AI agents (chat, voice), RAG pipelines
+- **Full-stack product** — Next.js, React, React Native, Node.js, FastAPI, Flask
+- **Engineering leadership** — system design, API architecture, technical ownership, code review, Agile delivery
+- **Cloud & DevOps** — AWS, Docker, GitHub Actions, DigitalOcean
 
-#### Technology Toolbox
+### Apps
 
-I work with **JavaScript**, **TypeScript**, **Python**, **React**, **NextJS**, **NodeJS**, and more. I specialize in:
-
-- SaaS Development
-- Web Development
-- Cloud Application Development
-- Generative AI & Prompt Engineering
-
-#### Freelancing
-
-Since 2017, I've also been freelancing on the side, working on various projects outside my full-time roles.
-
-### Expertise
-
-My skill set spans JavaScript, TypeScript, PHP, Python, and various frameworks. I build and maintain full-stack web applications, and I have experience with Generative AI, databases, and Cloud/DevOps tools.
+I also build and ship my own mobile apps — including [**Gratuity Guru**](https://play.google.com/store/apps/details?id=com.sameerwasim.gratuityguru), an offline tip & split calculator on Google Play.
 
 I'm open to new opportunities and collaborations. Let's connect!

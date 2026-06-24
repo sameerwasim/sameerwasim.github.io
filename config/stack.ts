@@ -71,6 +71,7 @@ export const WorkStack = [
   Stack.mongo,
   Stack.postgres,
 
+  Stack.aws,
   Stack.firebase,
 ];
 
